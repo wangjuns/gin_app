@@ -3,7 +3,9 @@ FROM golang:latest
 RUN mkdir /code
 WORKDIR /code
 
-RUN go get -u github.com/go-gonic/gin
+ADD . /code/
+
+RUN go build -o app .
 
 
-ENTRYPOINT ["go", "run", "app.go"]
+ENTRYPOINT ["./app"]
